@@ -1,0 +1,52 @@
+*{
+    margin:0;
+    padding:0;
+}
+
+.car{
+    left: 750px;
+    width: 50px;
+    position: absolute;
+    bottom: -5px;
+}
+
+.bus{
+    left: 300px;
+    width: 60px;
+    position: absolute;
+    bottom: -0.5px;
+}
+.bg{
+    
+    background-image: url(../images/bg3jpeg.jpg);
+    background-repeat:no-repeat;
+    position: relative;
+    height:100vh;
+    background-position: bottom left;
+    animation:moving_bg 5s linear infinite;
+    animation-direction: normal;
+    
+}
+body{
+    background: #3b5999;
+}
+
+@keyframes moving_bg{
+    from{background-position:bottom right;}
+    to{background-position: bottom left;}
+}
+
+
+
+/* .element {
+    animation: pulse 5s infinite;
+  }
+  
+  @keyframes pulse {
+    0% {
+      background-color: #001F3F;
+    }
+    100% {
+      background-color: #FF4136;
+    }
+  } */

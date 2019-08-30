@@ -1,0 +1,49 @@
+body{
+    margin:0;
+    padding:0;
+}
+
+
+
+.bg{
+    
+    background: #3b5999 url(../images/bg3jpeg.jpg);
+    position: relative;
+    height:100vh;
+    background-size: cover;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    animation: animate 10s linear infinite;
+    
+}
+.car{
+    left: 200px;
+    width: 15%;
+    position: absolute;
+    bottom: -5%;
+}
+.bus{
+    left: 500px;
+    width: 15%;
+    position: absolute;
+    bottom: 1%;
+}
+@keyframes animate{
+    from{background-position:0 0;}
+    to{background-position: 100% 0;}
+}
+
+
+
+/* .element {
+    animation: pulse 5s infinite;
+  }
+  
+  @keyframes pulse {
+    0% {
+      background-color: #001F3F;
+    }
+    100% {
+      background-color: #FF4136;
+    }
+  } */

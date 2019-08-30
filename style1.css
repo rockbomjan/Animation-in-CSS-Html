@@ -1,0 +1,100 @@
+html,body{
+    margin: 0;
+    height: 100%;
+}
+.banner{
+    position: relative;
+    height: 100vh;
+    /* The height property sets the background to the full height of the viewport. 
+    The vh unit uses percentages, so 100vh is 100% of the viewport. */
+    overflow: hidden;
+    /* The overflow property specifies what should happen if content overflows an 
+    element's box. This property specifies whether to clip content or to add 
+    scrollbars when an element's content is too big to fit in a specified area. 
+    Note: The overflow property only works for block elements with a specified 
+    height. 
+    overflow: hidden With the hidden value, the overflow is clipped, and the 
+    rest of the content is hidden: You can use the overflow property when you 
+    want to have better control of the layout. The overflow property specifies 
+    what happens if content overflows an element's box.*/
+    display: flex;
+    /* The flex CSS property sets how a flex item will grow or shrink to fit 
+    the space available in its flex container. It is a shorthand for flex-grow , 
+    flex-shrink , and flex-basis . 
+    It makes the flex item inflexible when there is some free space left, but allows
+    it to shrink to its minimum when there is not enough space. The alignment 
+    abilities or auto margins can be used to align flex items along the main 
+    axis.*/
+    justify-content: center;
+    color: #fff;
+}
+.banner:after{
+    content:'';
+    position: absolute;
+    z-index: -1;
+    /* The z-index property specifies the stack order of an element. An element 
+    with greater stack order is always in front of an element with a lower stack 
+    order. Note: z-index only works on positioned elements (position: absolute, 
+    position: relative, position: fixed, or position: sticky). */
+    left: 0;
+    bottom:0;
+}
+.banner:before{
+    content:'';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    -webkit-backface-visibility: hidden;
+    /* Webkit is the html/css rendering engine used in Apple's Safari browser, 
+    and in Google's Chrome. css values prefixes with -webkit- are webkit-specific, 
+    they're usually CSS3 or other non-standardised features. */
+    -moz-backface-visibility:hidden;
+    -ms-backface-visibility:hidden;
+    backface-visibility:hidden;
+    /* The backface-visibility property defines whether or not the back face of an 
+    element should be visible when facing the user. The back face of an element 
+    is a mirror image of the front face being displayed. This property is useful 
+    when an element is rotated. It lets you choose if the user should see the back 
+    face or not. */
+    -webkit-transform: translateZ(0) scale(1.0,1.0);/*webKit*/
+    -moz-transform: translateZ(0) scale(1.0,1.0);/*Mozilla*/
+    -ms-transform: translateZ(0) scale(1.0,1.0);/*Opera*/
+    -o-transform: translateZ(0) scale(1.0,1.0);/*Internet Explorer*/
+    transform: translateZ(0) scale(1.0,1.0);/*CSS3*/
+    /* Definition and Usage. The transform property applies a 2D or 3D 
+    transformation to an element. This property allows you to rotate, scale, move, 
+    skew, etc., elements. To better understand the transform property, view a 
+    demo. */
+    background-image: url(../images/sunlight_jungle.jpeg);
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-attachment: fixed;
+    animation: increase 60s linear 20ms infinite;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    /* CSS transitions provide a way to control animation speed when changing CSS 
+    properties. Instead of having property changes take effect immediately, you 
+    can cause the changes in a property to take place over a period of time. */
+    z-index: -2;
+}
+.banner-text{
+    width: 60%;
+    padding:15% 10% 0 10%;
+    text-align: center;
+}
+.banner-text h1{
+    text-transform: uppercase;
+    font-size: 40px;
+    background-color:rgba(0,0,0,0.5);
+    padding: 15px;
+}
+
+@keyframes increase{
+    0%{transform: scale(1)}
+    100%{transform: scale(1.5)}
+}
