@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:100,200,400,500,600,700,800,900');
+/* Formatting body.The text and h2 and h3s are displayed horizontally serially. */
+body{
+    margin: 0;
+    padding: 0;
+    display: flex;
+/* flex-basis works similar to another CSS property: min-width outside of flex. ...
+flex-grow, when applied to an item will scale it relative to the sum of the size 
+of all other items on the same row, which are automatically adjusted according 
+the the value that was specified. ...
+flex-shrink is the opposite of flex-grow */
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #060c21;
+    font-family: 'Poppins', sans-serif;
+}
+/* Each div in a container div with content are arranged horizontally in 4 boxes. */
+.container{
+    position: relative;
+/* When you set the position relative to an element, without adding any other 
+positioning attributes (top, bottom, right, left) nothing will happen. When you 
+add an additional position, such as left: 20px the element will move 20px to the 
+right from its normal position. Here, you can see that this element is relative 
+to itself. When the element moves, no other element on the layout will be affected. */
+    width: 90%;
+    display: grid;
+    grid-template-columns:repeat(auto-fill, minmax(260px, 1fr)) ;
+/* In the minmax() function the first value is the minimum size I want my tracks 
+to be, the second is the maximum. By using 1fr as the maximum value the space is 
+equally distributed. */
+    grid-template-rows: auto; 
+    grid-gap: 0 40px;
+/* The gap CSS property sets the gaps (gutters) between rows and columns. 
+It is a shorthand for row-gap and column-gap . */
+
+}
+/* Each box in the container has border around. */
+.container .box{
+    position: relative;
+    height: 400px;
+    background: #060c21;
+    display: flex;
+    justify-content: content;
+    align-items: center;
+    border: 1px solid #000;
+}
+/* Each div box is skewed before. */
+.container .box:before{
+    content:'';
+    position: absolute;
+/* When you set the position relative to an element, without adding any other 
+positioning attributes (top, bottom, right, left) nothing will happen. When you 
+add an additional position, such as left: 20px the element will move 20px to the 
+right from its normal position. Here, you can see that this element is relative 
+to itself. When the element moves, no other element on the layout will be 
+affected. */
+
+    top:-2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: #000;
+    transform: skew(2deg, 2deg);
+/* This transformation is a shear mapping (transvection) that distorts each point 
+within an element by a certain angle in the horizontal and vertical directions. 
+The coordinates of each point are modified by a value proportionate to the 
+specified angle and the distance to the origin; thus, the farther from the origin 
+a point is, the greater will be the value added it. 
+The skew() function is specified with either one or two values, which represent 
+the amount of skewing to be applied in each direction.
+ax
+Is an <angle> representing the angle to use to distort the element along the 
+abscissa.
+ay
+Is an <angle> representing the angle to use to distort the element along the 
+ordinate. If not defined, its default value is 0, resulting in a purely horizontal 
+skewing.*/
+    z-index: -1;
+/* Definition and Usage. The z-index property specifies the stack order of an 
+element. An element with greater stack order is always in front of an element 
+with a lower stack order. Note: z-index only works on positioned elements 
+(position: absolute, position: relative, position: fixed, or position: sticky). */
+}
+.container .box:nth-child(1):before {
+    background: linear-gradient(315deg,#ff0057, #e64a19);
+}
+.container .box:nth-child(2):before {
+    background: linear-gradient(315deg,#89ff00, #00bcd4);
+}
+.container .box:nth-child(3):before {
+    background: linear-gradient(315deg,#e91e63, #5d02ff);
+}
+.container .box:nth-child(4):before {
+    background: linear-gradient(315deg,#ff0000, #ffc107);
+}
+
+
+
+
+/* Changing the color of the box after. */
+.containter .box:after{
+    content:'';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    pointer-events: none;
+/* pointer-events. The pointer-events property allows for control over how 
+HTML elements respond to mouse/touch events – including CSS hover/active states, 
+click/tap events in Javascript, and whether or not the cursor is visible. */
+
+}
+/* The content div format. */
+.content{
+    position: relative;
+    padding: 20px;
+    transform: translateY(40px);
+/* The CSS translate() function is used to move elements in a two-dimensional 
+space. It moves the position of the element on the plane by the amount provided 
+by tx and ty . The translate() function accepts two arguments, indicating how 
+much to move the element along the x and y axes respectively. */
+}
+/* Formatting h2. */
+.box .content h2{
+    position: absolute;
+    top: -60px;
+    right: 20px; 
+    margin: 0;
+    padding: 0;
+/* The CSS padding properties are used to generate space around an element's 
+content, inside of any defined borders. With CSS, you have full control over the 
+padding. There are properties for setting the padding for each side of an element 
+(top, right, bottom, and left). 
+ A margin is the space outside something, whereas padding is the space inside 
+ something.*/
+    font-size: 10em;
+    color: rgba(255, 255, 255, .05);
+    transition: 0.5s;
+/* CSS transitions provide a way to control animation speed when changing CSS 
+properties. Instead of having property changes take effect immediately, you 
+can cause the changes in a property to take place over a period of time. */
+
+}
+/* Hovering moves the h2 top -140px. */
+.box:hover .content h2{
+    top: -140px;
+}
+/* Formatting h3. */
+.box .content h3{
+    margin: 0 0 10px;
+    padding: 0;
+    font-size: 24px;
+    font-weight: 500;
+    color: #fff;
+}
+/* Formatting p. */
+.box .content p{
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    color: #fff;
+}
+/* Formatting a href. */
+.box .content a{
+    position: relative;
+    margin: 20px 0 0;
+    padding: 10px 20px;
+    text-decoration: none;
+    border: 1px solid #fff;
+    display: inline-block;
+    color: #fff;
+    transition: 0.5s;
+    transform: translateY(-40px);
+    opacity: 0;
+    visibility: hidden;
+}
+/* Hover animation for box and changing properties for a href. */
+.box:hover .content a{
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+}
+/* Hover color change animation for a href. */
+.box .content a:hover{
+    color:#000;
+    background: #fff; 
+
+}
